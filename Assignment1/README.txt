@@ -1,4 +1,4 @@
-Circular Buffer Implementation (C Language)
+# Circular Buffer Implementation (C Language)
 Description
 This project is an implementation of a Circular Buffer (also known as a Ring Buffer) data structure in C. It was developed as part of the CE-ESY26 course assignments to demonstrate an understanding of memory management, pointers, and buffer overflow/underflow handling.
 
