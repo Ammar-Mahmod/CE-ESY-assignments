@@ -3,6 +3,7 @@
 
 #define Buffer_Size 200
 
+// Buffer Structure
 struct Buffer {
   char Buffer[Buffer_Size];
   int head ;
@@ -10,12 +11,14 @@ struct Buffer {
   int count;
 } buffer;
 
+// Buffer Setup
 void init(struct Buffer *bu){
   bu->head = 0;
   bu->tail = 0;
   bu->count = 0;
 };
 
+// Check If The Buffer Is Full
 int IsFull(struct Buffer *bu){
     if (bu->count == Buffer_Size)
         return 1;
@@ -23,6 +26,7 @@ int IsFull(struct Buffer *bu){
         return 0;
 };
 
+// Check If The Buffer Is Empty
 int IsEmpty(struct Buffer *bu){
     if (bu->count == 0)
         return 1;
@@ -30,6 +34,7 @@ int IsEmpty(struct Buffer *bu){
         return 0;
 };
 
+// Writing Function
 void Write(struct Buffer *bu,char value){
     if (IsFull(bu) == 1) {
         printf("Buffer Overflow!\n");
@@ -41,6 +46,7 @@ void Write(struct Buffer *bu,char value){
     };
 };
 
+// Reading Function
 char Read(struct Buffer *bu){
     if (IsEmpty(bu) == 1) {
         printf("The Buffer Is Empty!");
@@ -54,16 +60,24 @@ char Read(struct Buffer *bu){
     }
 };
 
+// The Main Programm
 int main() {
-
+    
+    // Buffer Initialization 
     init(&buffer);
+
+    
     char name[100];
     scanf(" %[^\n]s" , name);
     strcat(name," CE-ESY");
     int len = strlen(name);
+
+    // Writing
     for (int i = 0; i < len; i++){
         Write(&buffer, name[i]);
     }
+
+    // Reading
     char b;
     while(IsEmpty(&buffer) == 0){
         b = Read(&buffer);
